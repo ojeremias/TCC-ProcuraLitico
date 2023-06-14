@@ -72,6 +72,7 @@ const estilo = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
+        alignItems: "center",
         backgroundColor: '#45BA5F',
         height: '100%',
         width: '100%',
