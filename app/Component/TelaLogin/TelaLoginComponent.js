@@ -1,21 +1,27 @@
 import { useState } from "react";
-import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity,Image } from "react-native";
+
 import { TextInput } from 'react-native-paper'
 
 
 const TelaLoginComponent = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [mostrarSenha, setMostrarSenha] = useState(true);
 
+    const visibilidade = ()=>{
+        mostrarSenha === true? setMostrarSenha(false):setMostrarSenha(true);
+        
+    }
     return (
 
 
 
 
         <View style={estilo.container}>
-
-
+<View style={estilo.posImg}>
+ <Image style={estilo.img} source={require("../../img/imgLogo.png")} /> 
+</View>
             <Text style={estilo.titulo}>PROCURALITICO</Text>
 
             <View style={estilo.emailSenha}>
@@ -25,9 +31,9 @@ const TelaLoginComponent = ({ navigation }) => {
                     left={<TextInput.Icon icon="email" />}
 
                     onChangeText={(texto) => setEmail(texto)}
-                    defaultValue={email}>
+                    defaultValue={email}/>
 
-                </TextInput>
+                
             </View>
 
             <View style={estilo.emailSenha}>
@@ -35,11 +41,12 @@ const TelaLoginComponent = ({ navigation }) => {
                 <TextInput
                     label='Senha'
                     placeholder=""
-                    right={<TextInput.Icon icon="eye" Color="red" />}
+                    right={<TextInput.Icon icon="eye" Color="red" onPress={visibilidade}/>}
                     left={<TextInput.Icon icon="lock" />}
                     onChangeText={(texto) => setSenha(texto)}
-                    defaultValue={senha}>
-                </TextInput>
+                    defaultValue={senha}
+                    secureTextEntry= {mostrarSenha}/>
+             
 
                 <View style={estilo.entraVisitCriar}>
                     <TouchableOpacity onPress={() => navigation.navigate("telaPoliticos")}>
@@ -75,6 +82,7 @@ const estilo = StyleSheet.create({
         backgroundColor: '#45BA5F',
         height: '100%',
         width: '100%',
+        alignItems:'center'
 
     },
 
@@ -84,7 +92,7 @@ const estilo = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
         margin: 0,
-        top: -110
+        top: -80
     },
 
     title: {
@@ -113,7 +121,7 @@ const estilo = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
         top: 27,
-        backgroundColor: '#19451F',
+        backgroundColor: 'black',
         margin: -10,
         marginTop: 0
     },
@@ -136,8 +144,17 @@ const estilo = StyleSheet.create({
         padding:17,
         flexDirection:'row',
         justifyContent:'space-between'
-    }
+    },
+    posImg:{
+        alignItems:'center',
+        top:-80,
+    },
+    img: {
+        width: 70,
+        height:100,
+    },
+        
 })
 
 
-export default TelaLoginComponent;
+export default TelaLoginComponent
