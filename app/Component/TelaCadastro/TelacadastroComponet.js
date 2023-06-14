@@ -1,50 +1,73 @@
 import { useState } from "react";
-import { View, TextInput, Text, StyleSheet,TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet,TouchableOpacity , Image} from "react-native";
+import { TextInput } from "react-native-paper";
+
 
 
 const TelaCadastroComponent = ({ navigation }) => {
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
     const [senhaOk, setSenhaOk] = useState('')
+    const [mostrarSenha,setMostrarSenha] = useState(true)
+    const [confirmaSenha,setConfirmaSenha] = useState(true)
+
+    const visibilidade =()=>{
+        mostrarSenha === true ? setMostrarSenha(false):setMostrarSenha(true)
+    }
+    const visibilidadeDeConfirmacao = ()=>{
+        confirmaSenha === true ? setConfirmaSenha(false):setConfirmaSenha(true)
+
+    }
 
     return (
         <View style={estilo.container}>
-            <View style={estilo.dados}>
+            <View style={estilo.posImg}>
+                <Image style={estilo.img} source={require("../../img/imgLogo.png")}/>
+                </View>
                 <Text style={estilo.titulo}>PROCURALITICO</Text>
                 
                 <View style={estilo.emailSenha}>
-                    <Text style={estilo.title}>EMAIL</Text>
                     <TextInput
-                        placeholder="Digite seu email"
+                         label='Email'
+                         mode='flat'
+                         left={<TextInput.Icon icon="email" />}
+     
                         onChangeText={(texto) => setEmail(texto)}
                         default={email}>
                     </TextInput>
                       
                       </View>
                     <View style={estilo.emailSenha}>
-                        <Text style={estilo.title}>SENHA</Text>
+                        
                         <TextInput
-                            placeholder="Digite uma senha"
+                            label="Senha"
+                            mode='flat'
+                            left={<TextInput.Icon icon='lock'/>}
+                            right={<TextInput.Icon icon='eye' onPress={visibilidade}/>}
                             onChangeText={(texto) => setSenha(texto)}
-                            default={senha}>
-                        </TextInput>
+                            default={senha}
+                            secureTextEntry={mostrarSenha}/>
+                        
                             </View>
 
                         <View style={estilo.emailSenha}>
-                            <Text style={estilo.title}>CONFIRME A SENHA</Text>
                             <TextInput
-                                placeholder="Repita a senha"
+                                label='Confirma senha'
+                                mode="flat"
+                                left={<TextInput.Icon icon='lock'/>}
+                                right={<TextInput.Icon icon='eye'onPress={visibilidadeDeConfirmacao}/>}
                                 onChangeText={(texto) => setSenhaOk(texto)}
-                                default={senhaOk}>
-                            </TextInput>
+                                default={senhaOk}
+                                secureTextEntry={confirmaSenha}/>
+                            
                             </View>
 
-                        <TouchableOpacity style onPress={() => navigation.navigate("login")}>
-                        <Text style={estilo.butao}>Iniciar Sessão</Text>
+                        <TouchableOpacity style={estilo.bordaButao} onPress={() => navigation.navigate("PROCURALITICO")}>
+                        <Text style={estilo.butao}>CADASTRA</Text>
                         </TouchableOpacity>
                    
                 
-            </View>
+        
         </View>
     )
 
@@ -52,50 +75,66 @@ const TelaCadastroComponent = ({ navigation }) => {
 const estilo = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#DCDCDC',
+        backgroundColor: '#45BA5F',
         justifyContent: 'center',
-
-    },
-
-    dados: {
-        backgroundColor: 'white',
-        height: '55%',
-        width: '96%',
-        marginLeft: 8
-        
-        
-        
-        
+        alignItems:'center'
 
     },
 
     titulo: {
         fontSize: 30,
-        color: 'black',
+        color: 'white',
         fontWeight: 'bold',
         textAlign: 'center',
         marginBottom: 15,
-        margin:13
+        top:-37
 
     },
 
-    title: {
+    emailSenha: {
+        width: 393,
+        height: 110,
+        marginLeft: 10,
+        fontSize: 16,
+    },
+    bordaButao: {
+        
+        margin: 26,
+        padding: 20,
+        marginTop: 0
+    },
+        posImg:{
+        alignItems:'center',
+        top:-80,
+    },
+    butao: {
+        color: 'white',
+        fontSize: 16,
+        padding: 13,
+        width: 350,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        top: 27,
+        backgroundColor: 'black',
+        margin: 3,   title: {
 
         color: 'black',
         fontSize: 20,
         fontWeight: 'bold',
         marginTop: 28,
-        margin:13
-    },
-
-    emailSenha: {
-        borderBottomWidth: 2,
-        height: 85,
-        marginLeft:10,
-        fontSize: 16,
         
-
+    },
+        marginTop: -40
+    },
+    posImg:{
+        alignItems:'center',
+        top:-41,
+    },
+    img: {
+        width: 70,
+        height:100,
     }
+
 })
 
 
