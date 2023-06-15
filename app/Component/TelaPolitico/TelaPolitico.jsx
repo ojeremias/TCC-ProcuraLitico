@@ -78,9 +78,9 @@ const TelaPolitico = ({ route }) => {
             />
           </View>
           <View style={style.contentPrimary}>
-            <Text style={style.title}>Nome: {dadosPolitico.nome}</Text>
-            <Text style={style.description}>Partido: {dadosPolitico.siglaPartido}/{dadosPolitico.siglaUf  }</Text>
-            <Text style={style.description}>Contato: {dadosPolitico.email}</Text>
+            <Text style={style.title}>{dadosPolitico.nome}</Text>
+            <Text style={style.description}>{dadosPolitico.siglaPartido}/{dadosPolitico.siglaUf  }</Text>
+            <Text style={style.description}>{dadosPolitico.email}</Text>
           </View>
         </View>
         <ScrollView>
@@ -110,11 +110,6 @@ const TelaPolitico = ({ route }) => {
               style={style.image}
               source={{ uri: `${dadosPolitico.urlFoto}` }}
             />
-          </View>
-          <View style={style.contentPrimary}>
-            <Text style={style.title}>{dadosPolitico.nome}</Text>
-            <Text style={style.description}>{dadosPolitico.siglaPartido}</Text>
-            <Text style={style.description}>{dadosPolitico.email}</Text>
           </View>
         </View>
         <View style={{flex:1}}>

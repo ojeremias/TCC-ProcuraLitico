@@ -22,7 +22,7 @@ export default function App() {
         />
         <Stack.Screen name="Cadastro" component={TelaCadastroComponent} />
         {/* <Stack.Screen name=""/> */}
-        <Stack.Screen name="telaPoliticos" component={TelaPoliticos} />
+        <Stack.Screen name="telaPoliticos" component={TelaPoliticos}/>
         <Stack.Screen name="telaPolitico" component={TelaPolitico}/>
       </Stack.Navigator>
     </NavigationContainer>
