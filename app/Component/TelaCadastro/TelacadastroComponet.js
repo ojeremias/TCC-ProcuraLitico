@@ -116,16 +116,9 @@ const estilo = StyleSheet.create({
         textAlign: 'center',
         top: 27,
         backgroundColor: 'black',
-        margin: 3,   title: {
-
-        color: 'black',
-        fontSize: 20,
-        fontWeight: 'bold',
-        marginTop: 28,
-        
+        margin: 3,  
     },
-        marginTop: -40
-    },
+   
     posImg:{
         alignItems:'center',
         top:-41,
