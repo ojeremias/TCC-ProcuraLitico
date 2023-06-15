@@ -96,14 +96,7 @@ const estilo = StyleSheet.create({
         top: -80
     },
 
-    title: {
-
-        color: 'white',
-        fontSize: 20,
-        fontWeight: 'bold',
-        marginTop: 28,
-        margin: 13,
-    },
+   
 
     emailSenha: {
         width: 393,

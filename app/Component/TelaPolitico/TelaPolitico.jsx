@@ -71,26 +71,35 @@ const TelaPolitico = ({ route }) => {
     return (
       <View style={{ flex: 1 }}>
         <View style={style.content}>
-          <View style={{ height: 260, width: 200}}>
+          <View style={{ height: 200, width: 200}}>
             <Image
               style={style.image}
               source={{ uri: `${dadosPolitico.urlFoto}` }}
             />
           </View>
           <View style={style.contentPrimary}>
-            <Text style={style.title}>{dadosPolitico.nome}</Text>
-            <Text style={style.description}>{dadosPolitico.siglaPartido}/{dadosPolitico.siglaUf  }</Text>
-            <Text style={style.description}>{dadosPolitico.email}</Text>
+
+            <Text style={style.title}> {dadosPolitico.nome}</Text>
+            <Text style={style.description}>Partido: {dadosPolitico.siglaPartido}</Text>
+            <Text style={style.description}> {dadosPolitico.email}</Text>
+
           </View>
         </View>
         <ScrollView>
           {data?.map((despesa, i) => (
             <View stlye={style.contentSecondary} key={i}>
+              <View style={style.caixasInform}>
               <Text style={style.tipoDespesa}>{despesa.tipoDespesa}</Text>
-              <Text style={style.descriptionDespesa}>
-                {despesa.ano}/{despesa.mes} | gasto:{" "}
+       
+              <View style={style.descriptionDespesa}>
+                <Text> 
+                {despesa.ano} / {despesa.mes} {" "}
+                </Text>
+
                 <Text style={style.valoresDespesa}>R${despesa.valorDocumento}</Text>
-              </Text>
+              </View>
+           
+              </View>
             </View>
           ))}
           <View>
@@ -104,14 +113,18 @@ const TelaPolitico = ({ route }) => {
   }else{
     return (
       <View style={{ flex: 1 }}>
+        
         <View style={style.content}>
-          <View style={{ height: 260, width: 200}}>
+          <View >
             <Image
               style={style.image}
               source={{ uri: `${dadosPolitico.urlFoto}` }}
             />
           </View>
-        </View>
+<     
+     </View> 
+       
+
         <View style={{flex:1}}>
             <Loading/>
         </View>
@@ -124,36 +137,68 @@ const TelaPolitico = ({ route }) => {
 };
 const style = StyleSheet.create({
   image: {
-    width: "100%",
-    height: "100%",
-    objectFit: "contain",
+    width: 140,
+    height: 165,
+    alignItems:"center",
+    left:137,
+    bottom:-25,
+    borderRadius:15,
   },
+  
   content: {
-    display: "flex",
-    //backgroundColor: 'red',
-    flexDirection: "row",
+    
+    flexDirection: "column",
+    justifyContent:"center",
+    height:250
   },
   contentPrimary:{
     justifyContent: "center",
     alignItems: "center",
+    bottom:10
 
   },
   contentSecondary:{
-    backgroundColor: "black",
+    backgroundColor: "red",
+    color:"red",
+    flex:1,
+  },
+  caixasInform:{
+    
+    borderColor:"#fff",
+    margin:3,
+    padding:3,
+    borderWidth:5,
+    borderColor:"#fff",
+   borderStyle:'solid',
+   borderRadius:13
+
   },
   tipoDespesa:{
-    fontWeight: "bold",
+    textTransform:"uppercase",
     marginLeft: 10
   },
   descriptionDespesa:{
     marginLeft: 10,
+    justifyContent:"space-between",
+    flexDirection:"row",
   },
   valoresDespesa:{
-    color: "green"
+    color: "green",
+    fontSize:17,
+    marginRight:17,
+
+
+    
+  
   },
   total:{
-    fontWeight: "bold",
-    marginLeft: 10,
+  
+    borderWidth:5,
+    fontSize:27,
+    borderColor:"#fff",
+    margin:5,
+    borderRadius:12,
+    marginRight:1,
   },
   loading:{
     height: "100%",
@@ -162,6 +207,10 @@ const style = StyleSheet.create({
   },
   title:{
     fontWeight: "bold"
+  },
+  bordaDiscricao:{
+    fontWeight:700,
+
   }
 });
 export default TelaPolitico;
