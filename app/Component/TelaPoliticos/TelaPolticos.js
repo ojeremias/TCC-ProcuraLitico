@@ -7,8 +7,6 @@ const TelaPoliticos = ({ navigation }) => {
   const [politicoFiltrado, setPoliticoFiltrado] = useState([]);
   const [text, setText] = useState("");
 
-
-
   // const iderlan = {
   //   email: "iderlandopovo@riolargo.al.leg.br",
   //   id: 40000,
@@ -29,7 +27,7 @@ const TelaPoliticos = ({ navigation }) => {
         );
         const json = await response.json();
         //setPoliticos([...json.dados, iderlan]);
-        setPoliticos(json.dados)
+        setPoliticos(json.dados);
       } catch (error) {
         console.error(error);
       }
@@ -65,7 +63,7 @@ const TelaPoliticos = ({ navigation }) => {
           >
             <List.Item
               title={item.nome}
-              description={item.siglaPartido}
+              description={`${item.siglaPartido}/${item.siglaUf}`}
               left={(props) => <Avatar.Image source={{ uri: item.urlFoto }} />}
             />
           </Pressable>

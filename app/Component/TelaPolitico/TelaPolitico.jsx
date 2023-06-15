@@ -78,9 +78,11 @@ const TelaPolitico = ({ route }) => {
             />
           </View>
           <View style={style.contentPrimary}>
+
             <Text style={style.title}> {dadosPolitico.nome}</Text>
             <Text style={style.description}>Partido: {dadosPolitico.siglaPartido}</Text>
             <Text style={style.description}> {dadosPolitico.email}</Text>
+
           </View>
         </View>
         <ScrollView>
@@ -88,11 +90,12 @@ const TelaPolitico = ({ route }) => {
             <View stlye={style.contentSecondary} key={i}>
               <View style={style.caixasInform}>
               <Text style={style.tipoDespesa}>{despesa.tipoDespesa}</Text>
-           
+       
               <View style={style.descriptionDespesa}>
                 <Text> 
                 {despesa.ano} / {despesa.mes} {" "}
                 </Text>
+
                 <Text style={style.valoresDespesa}>R${despesa.valorDocumento}</Text>
               </View>
            
@@ -118,10 +121,10 @@ const TelaPolitico = ({ route }) => {
               source={{ uri: `${dadosPolitico.urlFoto}` }}
             />
           </View>
-       
+<     
      </View> 
        
-        
+
         <View style={{flex:1}}>
             <Loading/>
         </View>
