@@ -88,7 +88,7 @@ const TelaPolitico = ({ route }) => {
             <View stlye={style.contentSecondary} key={i}>
               <Text style={style.tipoDespesa}>{despesa.tipoDespesa}</Text>
               <Text style={style.descriptionDespesa}>
-                Ano: {despesa.ano} | mes: {despesa.mes} | gasto:{" "}
+                {despesa.ano}/{despesa.mes} | gasto:{" "}
                 <Text style={style.valoresDespesa}>R${despesa.valorDocumento}</Text>
               </Text>
             </View>
