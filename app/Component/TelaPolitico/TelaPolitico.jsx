@@ -95,7 +95,6 @@ const TelaPolitico = ({ route }) => {
                 <Text> 
                 {despesa.ano} / {despesa.mes} {" "}
                 </Text>
-
                 <Text style={style.valoresDespesa}>R${despesa.valorDocumento}</Text>
               </View>
            
@@ -104,7 +103,7 @@ const TelaPolitico = ({ route }) => {
           ))}
           <View>
           <Text style={style.total}>Gasto total:{" "}
-            <Text style={style.valoresDespesa}>R${acumulador.toFixed(2)}</Text>
+            <Text style={style.valorDespesaTotal}>R${acumulador.toFixed(2)}</Text>
           </Text>
           </View>
         </ScrollView>
@@ -121,14 +120,20 @@ const TelaPolitico = ({ route }) => {
               source={{ uri: `${dadosPolitico.urlFoto}` }}
             />
           </View>
+
     
      </View> 
+
+     
+  
        
 
         <View style={{flex:1}}>
             <Loading/>
         </View>
         
+
+      </View>
 
       </View>
     )
@@ -186,10 +191,9 @@ const style = StyleSheet.create({
     color: "green",
     fontSize:17,
     marginRight:17,
-
-
-    
-  
+  },
+  valorDespesaTotal:{
+    color: "green"
   },
   total:{
   

@@ -77,7 +77,7 @@ const TelaPoliticos = ({ navigation }) => {
       <TextInput
         style={{ backgroundColor: "#a3c152" }}
         activeUnderlineColor="black"
-        label="Nome do deputado federal"
+        label="Buscar por nome"
         value={text}
         onChangeText={(text) => setText(text)}
       />
