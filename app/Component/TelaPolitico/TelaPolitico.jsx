@@ -120,8 +120,12 @@ const TelaPolitico = ({ route }) => {
               source={{ uri: `${dadosPolitico.urlFoto}` }}
             />
           </View>
-     
+
     
+     </View> 
+
+     
+  
        
 
         <View style={{flex:1}}>
