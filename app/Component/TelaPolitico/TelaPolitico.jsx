@@ -121,7 +121,7 @@ const TelaPolitico = ({ route }) => {
               source={{ uri: `${dadosPolitico.urlFoto}` }}
             />
           </View>
-<     
+    
      </View> 
        
 
