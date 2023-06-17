@@ -94,7 +94,7 @@ const estilo = StyleSheet.create({
     emailSenha: {
         width: 393,
         height: 110,
-        marginLeft: 10,
+        marginLeft: 1,
         fontSize: 16,
     },
     bordaButao: {
