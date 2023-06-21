@@ -79,6 +79,7 @@ const estilo = StyleSheet.create({
         justifyContent: 'center',
         alignItems:'center'
 
+        
     },
 
     titulo: {
