@@ -101,7 +101,6 @@ const estilo = StyleSheet.create({
     emailSenha: {
         width: 393,
         height: 110,
-        marginLeft: 10,
         fontSize: 16,
     },
 

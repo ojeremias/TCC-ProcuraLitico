@@ -135,7 +135,7 @@ const TelaPolitico = ({ route }) => {
 
       </View>
 
-      </View>
+      
     )
   }
  

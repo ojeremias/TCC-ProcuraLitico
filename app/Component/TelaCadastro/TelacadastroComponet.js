@@ -78,8 +78,6 @@ const estilo = StyleSheet.create({
         backgroundColor: '#45BA5F',
         justifyContent: 'center',
         alignItems:'center'
-
-        
     },
 
     titulo: {
@@ -95,7 +93,6 @@ const estilo = StyleSheet.create({
     emailSenha: {
         width: 393,
         height: 110,
-        marginLeft: 10,
         fontSize: 16,
     },
     bordaButao: {
