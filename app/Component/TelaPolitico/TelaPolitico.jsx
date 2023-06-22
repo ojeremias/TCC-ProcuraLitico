@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Text, Image, StyleSheet, View, FlatList, ScrollView} from "react-native";
+import {
+  Text,
+  Image,
+  StyleSheet,
+  View,
+  FlatList,
+  ScrollView,
+} from "react-native";
 import { List } from "react-native-paper";
 import { GASTOS_FAKE } from "../Utils/DataFake";
 import Loading from "../Loading/Loading";
-
 
 const TelaPolitico = ({ route }) => {
   //  console.log(route.params.chaveValor)
@@ -15,15 +21,15 @@ const TelaPolitico = ({ route }) => {
 
   const [data, setData] = useState([]);
   const [selecionados, setSelecionados] = useState([]);
-  const valorTotal = 0
-  let acumulador = 0
+  const valorTotal = 0;
+  let acumulador = 0;
 
-  data?.map(gasto => {  
-    gasto.valorDocumento 
-  let valorIndividual = gasto.valorDocumento
-  acumulador+=valorIndividual
-  console.log(acumulador)
-  })
+  data?.map((gasto) => {
+    gasto.valorDocumento;
+    let valorIndividual = gasto.valorDocumento;
+    acumulador += valorIndividual;
+    console.log(acumulador);
+  });
 
   // Substituido pela linha 26 à 40 | Se utilizando de IIFE
   // const showMoreData = async () => {
@@ -56,163 +62,147 @@ const TelaPolitico = ({ route }) => {
       } catch (error) {
         console.error("error:" + error);
       }
-  
-
     })();
   }, []);
 
-
   // const gastoTotal = ()=>{
-   
+
   // }
   // gastoTotal()
   console.log(data);
-  if( data.length > 0){
+  if (data.length > 0) {
     return (
       <View style={{ flex: 1 }}>
         <View style={style.content}>
-          <View style={{ height: 200, width: 200}}>
+          <View style={{ height: 200, width: 200, alignItems: "center" }}>
             <Image
               style={style.image}
               source={{ uri: `${dadosPolitico.urlFoto}` }}
             />
           </View>
           <View style={style.contentPrimary}>
-
             <Text style={style.title}> {dadosPolitico.nome}</Text>
-            <Text style={style.description}>Partido: {dadosPolitico.siglaPartido}</Text>
+            <Text style={style.description}>
+              Partido: {dadosPolitico.siglaPartido}
+            </Text>
             <Text style={style.description}> {dadosPolitico.email}</Text>
-
           </View>
         </View>
         <ScrollView>
           {data?.map((despesa, i) => (
             <View stlye={style.contentSecondary} key={i}>
               <View style={style.caixasInform}>
-              <Text style={style.tipoDespesa}>{despesa.tipoDespesa}</Text>
-       
-              <View style={style.descriptionDespesa}>
-                <Text> 
-                {despesa.ano} / {despesa.mes} {" "}
-                </Text>
+                <Text style={style.tipoDespesa}>{despesa.tipoDespesa}</Text>
 
-                <Text style={style.valoresDespesa}>R${despesa.valorDocumento}</Text>
-              </View>
-           
+                <View style={style.descriptionDespesa}>
+                  <Text>
+                    {despesa.ano} / {despesa.mes}{" "}
+                  </Text>
+
+                  <Text style={style.valoresDespesa}>
+                    R${despesa.valorDocumento}
+                  </Text>
+                </View>
               </View>
             </View>
           ))}
           <View>
-          <Text style={style.total}>Gasto total:{" "}
-            <Text style={style.valoresDespesa}>R${acumulador.toFixed(2)}</Text>
-          </Text>
+            <Text style={style.total}>
+              Gasto total:{" "}
+              <Text style={style.valoresDespesa}>
+                R${acumulador.toFixed(2)}
+              </Text>
+            </Text>
           </View>
         </ScrollView>
       </View>
     );
-  }else{
+  } else {
     return (
       <View style={{ flex: 1 }}>
-        
         <View style={style.content}>
-          <View >
+          <View>
             <Image
               style={style.image}
               source={{ uri: `${dadosPolitico.urlFoto}` }}
             />
           </View>
-     
-    
-       
 
-        <View style={{flex:1}}>
-            <Loading/>
+          <View style={{ flex: 1 }}>
+            <Loading />
+          </View>
         </View>
-        
-
       </View>
-
-      </View>
-    )
+    );
   }
- 
 };
 const style = StyleSheet.create({
   image: {
     width: 140,
     height: 165,
-    alignItems:"center",
-    left:137,
-    bottom:-25,
-    borderRadius:15,
+    alignItems: "center",
+    left: 137,
+    bottom: -25,
+    borderRadius: 15,
   },
-  
+
   content: {
-    
     flexDirection: "column",
-    justifyContent:"center",
-    height:250
+    justifyContent: "center",
+    height: 250,
+    flexDirection: "column",
   },
-  contentPrimary:{
+  contentPrimary: {
     justifyContent: "center",
     alignItems: "center",
-    bottom:10
-
+    bottom: 10,
   },
-  contentSecondary:{
+  contentSecondary: {
     backgroundColor: "red",
-    color:"red",
-    flex:1,
+    color: "red",
+    flex: 1,
   },
-  caixasInform:{
-    
-    borderColor:"#fff",
-    margin:3,
-    padding:3,
-    borderWidth:5,
-    borderColor:"#fff",
-   borderStyle:'solid',
-   borderRadius:13
-
+  caixasInform: {
+    borderColor: "#fff",
+    margin: 3,
+    padding: 3,
+    borderWidth: 5,
+    borderColor: "#fff",
+    borderStyle: "solid",
+    borderRadius: 13,
   },
-  tipoDespesa:{
-    textTransform:"uppercase",
-    marginLeft: 10
-  },
-  descriptionDespesa:{
+  tipoDespesa: {
+    textTransform: "uppercase",
     marginLeft: 10,
-    justifyContent:"space-between",
-    flexDirection:"row",
   },
-  valoresDespesa:{
+  descriptionDespesa: {
+    marginLeft: 10,
+    justifyContent: "space-between",
+    flexDirection: "row",
+  },
+  valoresDespesa: {
     color: "green",
-    fontSize:17,
-    marginRight:17,
-
-
-    
-  
+    fontSize: 17,
+    marginRight: 17,
   },
-  total:{
-  
-    borderWidth:5,
-    fontSize:27,
-    borderColor:"#fff",
-    margin:5,
-    borderRadius:12,
-    marginRight:1,
+  total: {
+    borderWidth: 5,
+    fontSize: 27,
+    borderColor: "#fff",
+    margin: 5,
+    borderRadius: 12,
+    marginRight: 1,
   },
-  loading:{
+  loading: {
     height: "100%",
     alignItems: "center",
     justifyContent: "center",
   },
-  title:{
-    fontWeight: "bold"
+  title: {
+    fontWeight: "bold",
   },
-  bordaDiscricao:{
-    fontWeight:700,
-
-  }
+  bordaDiscricao: {
+    fontWeight: 700,
+  },
 });
 export default TelaPolitico;

@@ -5,7 +5,7 @@ import TelaPrincipalComponent from "./Component/TelaPrincipal/TelaPricipalCompon
 import TelaLoginComponent from "./Component/TelaLogin/TelaLoginComponent";
 import TelaCadastroComponent from "./Component/TelaCadastro/TelacadastroComponet";
 import TelaPoliticos from "./Component/TelaPoliticos/TelaPolticos";
-import TelaPolitico from "./Component/TelaPolitico/TelaPolitico"
+import TelaPolitico from "./Component/TelaPolitico/TelaPolitico";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -14,7 +14,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator inicialRouterName="">
+      <Stack.Navigator inicialRouterName="TelaPoliticos">
         <Stack.Screen
           name="PROCURALITICO"
           component={TelaLoginComponent}
@@ -22,8 +22,8 @@ export default function App() {
         />
         <Stack.Screen name="Cadastro" component={TelaCadastroComponent} />
         {/* <Stack.Screen name=""/> */}
-        <Stack.Screen name="telaPoliticos" component={TelaPoliticos}/>
-        <Stack.Screen name="telaPolitico" component={TelaPolitico}/>
+        <Stack.Screen name="telaPoliticos" component={TelaPoliticos} />
+        <Stack.Screen name="telaPolitico" component={TelaPolitico} />
       </Stack.Navigator>
     </NavigationContainer>
   );
