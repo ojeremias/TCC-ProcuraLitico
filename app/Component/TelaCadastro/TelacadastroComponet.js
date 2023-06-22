@@ -87,14 +87,14 @@ const estilo = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
         marginBottom: 15,
-        top:-37
+        top:-30
 
     },
 
     emailSenha: {
         width: 393,
         height: 110,
-        marginLeft: 10,
+        marginLeft: 1,
         fontSize: 16,
     },
     bordaButao: {
@@ -121,7 +121,7 @@ const estilo = StyleSheet.create({
    
     posImg:{
         alignItems:'center',
-        top:-41,
+        top:-27,
     },
     img: {
         width: 70,
