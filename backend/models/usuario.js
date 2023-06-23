@@ -1,27 +1,29 @@
 const { Sequelize, DataTypes, Model } = require("sequelize");
 const db = require("../db");
-const { string } = require("prop-types");
+
 const sequelize = require("sequelize");
 
-const CreateUserModel = db.define("usuario", {
-  id: {
-    type: sequelize.INTEGER,
-    autoIncrement: true,
-    allowNull: true,
-    primaryKey: true,
+const CreateUserModel = db.define(
+  "user",
+  {
+    id: {
+      type: sequelize.INTEGER,
+      autoIncrement: true,
+      allowNull: true,
+      primaryKey: true,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      required: true,
+    },
+    senha: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },
-  email: {
-    type: string,
-    allowNull: true,
-  },
-  senha: {
-    type: string,
-    allowNull: true,
-  },
-  confirmarSenha: {
-    type: string,
-    allowNull: true,
-  },
-});
+
+  { timestamps: true, tableName: "user" }
+);
 
 module.exports = CreateUserModel;
