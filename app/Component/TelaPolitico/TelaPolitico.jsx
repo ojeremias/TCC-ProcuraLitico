@@ -133,7 +133,13 @@ const TelaPolitico = ({ route }) => {
           </View>
         </View>
       </View>
+<<<<<<< HEAD
     );
+=======
+
+      </View>
+    )
+>>>>>>> parent of 5e7b1d9 (alteração na margin)
   }
 };
 const style = StyleSheet.create({
