@@ -92,6 +92,7 @@ const TelaPolitico = ({ route }) => {
           {data?.map((despesa, i) => (
             <View stlye={style.contentSecondary} key={i}>
               <View style={style.caixasInform}>
+<<<<<<< HEAD
                 <Text style={style.tipoDespesa}>{despesa.tipoDespesa}</Text>
 
                 <View style={style.descriptionDespesa}>
@@ -103,16 +104,34 @@ const TelaPolitico = ({ route }) => {
                     R${despesa.valorDocumento}
                   </Text>
                 </View>
+=======
+              <Text style={style.tipoDespesa}>{despesa.tipoDespesa}</Text>
+       
+              <View style={style.descriptionDespesa}>
+                <Text> 
+                {despesa.ano} / {despesa.mes} {" "}
+                </Text>
+
+                <Text style={style.valoresDespesa}>R${despesa.valorDocumento}</Text>
+              </View>
+           
+>>>>>>> parent of 8055c61 (Estilizando)
               </View>
             </View>
           ))}
           <View>
+<<<<<<< HEAD
             <Text style={style.total}>
               Gasto total:{" "}
               <Text style={style.valoresDespesa}>
                 R${acumulador.toFixed(2)}
               </Text>
             </Text>
+=======
+          <Text style={style.total}>Gasto total:{" "}
+            <Text style={style.valoresDespesa}>R${acumulador.toFixed(2)}</Text>
+          </Text>
+>>>>>>> parent of 8055c61 (Estilizando)
           </View>
         </ScrollView>
       </View>
@@ -188,6 +207,7 @@ const style = StyleSheet.create({
   },
   valoresDespesa: {
     color: "green",
+<<<<<<< HEAD
     fontSize: 17,
     marginRight: 17,
   },
@@ -198,6 +218,14 @@ const style = StyleSheet.create({
     margin: 5,
     borderRadius: 12,
     marginRight: 1,
+=======
+    fontSize:17,
+    marginRight:17,
+
+
+    
+  
+>>>>>>> parent of 8055c61 (Estilizando)
   },
   loading: {
     height: "100%",
