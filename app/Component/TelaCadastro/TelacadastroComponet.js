@@ -142,48 +142,4 @@ const estilo = StyleSheet.create({
   },
 });
 
-<<<<<<< HEAD
 export default TelaCadastroComponent;
-=======
-    emailSenha: {
-        width: 393,
-        height: 110,
-        marginLeft: 10,
-        fontSize: 16,
-    },
-    bordaButao: {
-        
-        margin: 26,
-        padding: 20,
-        marginTop: 0
-    },
-        posImg:{
-        alignItems:'center',
-        top:-80,
-    },
-    butao: {
-        color: 'white',
-        fontSize: 16,
-        padding: 13,
-        width: 350,
-        fontWeight: 'bold',
-        textAlign: 'center',
-        top: 27,
-        backgroundColor: 'black',
-        margin: 3,  
-    },
-   
-    posImg:{
-        alignItems:'center',
-        top:-27,
-    },
-    img: {
-        width: 70,
-        height:100,
-    }
-
-})
-
-
-export default TelaCadastroComponent
->>>>>>> parent of 5e7b1d9 (alteração na margin)
