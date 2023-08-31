@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { FlatList, View, Pressable } from "react-native";
 import { Avatar, List, TextInput } from "react-native-paper";
+import axios from "axios";
 
 const TelaPoliticos = ({ navigation }) => {
   const [politicos, setPoliticos] = useState([]);
   const [politicoFiltrado, setPoliticoFiltrado] = useState([]);
   const [text, setText] = useState("");
-
+  console.log(politicos);
   // const iderlan = {
   //   email: "iderlandopovo@riolargo.al.leg.br",
   //   id: 40000,
@@ -22,15 +23,15 @@ const TelaPoliticos = ({ navigation }) => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await fetch(
-          "https://dadosabertos.camara.leg.br/api/v2/deputados?ordem=ASC&ordenarPor=nome"
+        const { data } = await axios.get(
+          "https://dadosabertos.camara.leg.br/api/v2/deputados?ordem=ASC&ordenarPor=nome",
+          {}
         );
-        const json = await response.json();
+        console.log(data);
+
         //setPoliticos([...json.dados, iderlan]);
-        setPoliticos(json.dados);
-      } catch (error) {
-        console.error(error);
-      }
+        setPoliticos(data.dados);
+      } catch (error) {}
     })();
   }, []);
 
@@ -78,7 +79,7 @@ const TelaPoliticos = ({ navigation }) => {
         style={{ backgroundColor: "#a3c152" }}
         activeUnderlineColor="black"
         label="Buscar por nome"
-        value={text}
+        // value={text}
         onChangeText={(text) => setText(text)}
       />
 
