@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { FlatList, View, Pressable } from "react-native";
 import { Avatar, List, TextInput } from "react-native-paper";
 import axios from "axios";
+import Filtra from "../butaoFiltra/filtra";
 
 const TelaPoliticos = ({ navigation }) => {
   const [politicos, setPoliticos] = useState([]);
   const [politicoFiltrado, setPoliticoFiltrado] = useState([]);
   const [text, setText] = useState("");
-  console.log(politicos);
+  const [siglaEstado, setSiglaEstado] = useState("");
+  console.log(siglaEstado);
   // const iderlan = {
   //   email: "iderlandopovo@riolargo.al.leg.br",
   //   id: 40000,
@@ -73,16 +75,31 @@ const TelaPoliticos = ({ navigation }) => {
     );
   };
 
+  function lidaFiltrar({ siglaUfprops }) {
+    const Filtrados = politicoFiltrado.filter(({ siglaUf }) => {
+      return "PE" == siglaUf;
+    });
+    setPoliticoFiltrado(Filtrados);
+  }
+
   return (
     <View style={{ flex: 1, padding: 24 }}>
-      <TextInput
-        style={{ backgroundColor: "#a3c152" }}
-        activeUnderlineColor="black"
-        label="Buscar por nome"
-        // value={text}
-        onChangeText={(text) => setText(text)}
-      />
-
+      <View
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "row",
+        }}
+      >
+        <TextInput
+          style={{ backgroundColor: "#a3c152", flex: 1 }}
+          activeUnderlineColor="black"
+          label="Buscar por nome"
+          // value={text}
+          onChangeText={(text) => setText(text)}
+        />
+        <Filtra setSiglaEstado={setSiglaEstado} lidaFiltrar={lidaFiltrar} />
+      </View>
       <ComponentFiltrados />
     </View>
   );

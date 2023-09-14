@@ -74,13 +74,13 @@ const TelaPolitico = ({ route }) => {
     return (
       <View style={{ flex: 1 }}>
         <View style={style.content}>
-          <View style={{ height: 200, width: 200, alignItems: "center" }}>
-            <Image
-              style={style.image}
-              source={{ uri: `${dadosPolitico.urlFoto}` }}
-            />
-          </View>
           <View style={style.contentPrimary}>
+            <View style={{ height: 200, width: 200, alignItems: "center" }}>
+              <Image
+                style={style.image}
+                source={{ uri: `${dadosPolitico.urlFoto}` }}
+              />
+            </View>
             <Text style={style.title}> {dadosPolitico.nome}</Text>
             <Text style={style.description}>
               Partido: {dadosPolitico.siglaPartido}
@@ -141,7 +141,6 @@ const style = StyleSheet.create({
     width: 140,
     height: 165,
     alignItems: "center",
-    left: 137,
     bottom: -25,
     borderRadius: 15,
   },
