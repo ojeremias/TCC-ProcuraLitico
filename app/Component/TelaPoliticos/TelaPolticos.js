@@ -3,13 +3,12 @@ import { FlatList, View, Pressable } from "react-native";
 import { Avatar, List, TextInput } from "react-native-paper";
 import axios from "axios";
 import Filtra from "../butaoFiltra/filtra";
-
 const TelaPoliticos = ({ navigation }) => {
   const [politicos, setPoliticos] = useState([]);
   const [politicoFiltrado, setPoliticoFiltrado] = useState([]);
   const [text, setText] = useState("");
   const [siglaEstado, setSiglaEstado] = useState("");
-  console.log(siglaEstado);
+  console.log(text);
   // const iderlan = {
   //   email: "iderlandopovo@riolargo.al.leg.br",
   //   id: 40000,
@@ -38,10 +37,25 @@ const TelaPoliticos = ({ navigation }) => {
   }, []);
 
   useEffect(() => {
-    const nomeBuscado = politicos.filter((item) =>
-      item.nome.toLowerCase().includes(text.toLowerCase())
-    );
-    setPoliticoFiltrado(nomeBuscado);
+    if (siglaEstado || siglaEstado != "") {
+      if (text == "") {
+        console.log("entrou");
+        lidaFiltrar(siglaEstado);
+        return;
+      }
+      console.log("entrou no primeiro");
+      const nomeBuscado = politicoFiltrado.filter((item) =>
+        item.nome.toLowerCase().includes(text.toLowerCase())
+      );
+      setPoliticoFiltrado(nomeBuscado);
+      return;
+    } else {
+      const nomeBuscado = politicos.filter((item) =>
+        item.nome.toLowerCase().includes(text.toLowerCase())
+      );
+      setPoliticoFiltrado(nomeBuscado);
+      return;
+    }
   }, [text, politicos]);
 
   const ComponentFiltrados = () => {
@@ -75,9 +89,11 @@ const TelaPoliticos = ({ navigation }) => {
     );
   };
 
-  function lidaFiltrar({ siglaUfprops }) {
-    const Filtrados = politicoFiltrado.filter(({ siglaUf }) => {
-      return "PE" == siglaUf;
+  function lidaFiltrar(siglaUfprops) {
+    console.log(siglaUfprops);
+    if (siglaUfprops == "") return;
+    const Filtrados = politicos.filter(({ siglaUf }) => {
+      return siglaUfprops == siglaUf;
     });
     setPoliticoFiltrado(Filtrados);
   }
