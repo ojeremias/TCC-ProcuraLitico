@@ -28,11 +28,10 @@ const TelaPoliticos = ({ navigation }) => {
           "https://dadosabertos.camara.leg.br/api/v2/deputados?ordem=ASC&ordenarPor=nome",
           {}
         );
-        console.log(data);
 
         //setPoliticos([...json.dados, iderlan]);
         setPoliticos(data.dados);
-      } catch (error) {}
+      } catch (error) { }
     })();
   }, []);
 
@@ -90,7 +89,6 @@ const TelaPoliticos = ({ navigation }) => {
   };
 
   function lidaFiltrar(siglaUfprops) {
-    console.log(siglaUfprops);
     if (siglaUfprops == "") return;
     const Filtrados = politicos.filter(({ siglaUf }) => {
       return siglaUfprops == siglaUf;

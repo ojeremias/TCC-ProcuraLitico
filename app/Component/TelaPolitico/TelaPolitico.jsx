@@ -15,7 +15,6 @@ const TelaPolitico = ({ route }) => {
   //  console.log(route.params.chaveValor)
   /* console.log(route); */
   const dadosPolitico = route?.params?.chaveValor;
-  console.log(dadosPolitico);
   /* console.log(dadosPolitico); */
   //console.log(dadosPolitico.uri.dados.gabinete.email);
 
@@ -28,7 +27,6 @@ const TelaPolitico = ({ route }) => {
     gasto.valorDocumento;
     let valorIndividual = gasto.valorDocumento;
     acumulador += valorIndividual;
-    console.log(acumulador);
   });
 
   // Substituido pela linha 26 à 40 | Se utilizando de IIFE
@@ -69,7 +67,6 @@ const TelaPolitico = ({ route }) => {
 
   // }
   // gastoTotal()
-  console.log(data);
   if (data.length > 0) {
     return (
       <View style={{ flex: 1 }}>

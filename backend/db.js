@@ -1,6 +1,6 @@
 const { Sequelize } = require("sequelize");
 
-const dbSequelize = new Sequelize("bdtestelocal", "root", "beto123", {
+const dbSequelize = new Sequelize("bdtestelocal", "aluno.ifal", "aluno.ifal", {
   dialect: "mysql",
   host: "localhost",
 });

@@ -20,6 +20,7 @@ const TelaCadastroComponent = ({ navigation }) => {
   };
 
   const verificarCadastro = async () => {
+    console.log("chegou");
     if (email === "" || senha === "" || senhaOk === "") {
       console.log("preencha os campos corretamente");
     } else if (!regex.test(email)) {
@@ -30,7 +31,6 @@ const TelaCadastroComponent = ({ navigation }) => {
           data: dataUser,
         })
         .then((response) => response);
-      console.log(result);
       if (result.data.status) {
         navigation.navigate("PROCURALITICO");
       }

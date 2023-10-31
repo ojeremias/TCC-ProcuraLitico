@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import {
   SafeAreaView,
@@ -18,6 +19,19 @@ const TelaLoginComponent = ({ navigation }) => {
   const visibilidade = () => {
     mostrarSenha === true ? setMostrarSenha(false) : setMostrarSenha(true);
   };
+
+
+  async function login() {
+    const res = await axios.post("http://10.220.30.130:3500/api/login", {
+      email: email,
+      senha: senha
+    })
+    console.log(res);
+    if (res.status === 200) {
+      navigation.navigate("telaPoliticos")
+    }
+  }
+
   return (
     <View style={estilo.container}>
       <View style={estilo.posImg}>
@@ -61,7 +75,7 @@ const TelaLoginComponent = ({ navigation }) => {
       </View>
       <TouchableOpacity
         style={estilo.bordaButao}
-        onPress={() => navigation.navigate("telaPoliticos")}
+        onPress={() => login()}
       >
         <Text style={estilo.butao}>LOGIN</Text>
       </TouchableOpacity>
