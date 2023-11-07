@@ -77,11 +77,11 @@ const TelaPoliticos = ({ navigation }) => {
               });
             }}
           >
-            <List.Item
+            {/* <List.Item
               title={item.nome}
               description={`${item.siglaPartido}/${item.siglaUf}`}
               left={(props) => <Avatar.Image source={{ uri: item.urlFoto }} />}
-            />
+            /> */}
           </Pressable>
         )}
       />
@@ -112,7 +112,7 @@ const TelaPoliticos = ({ navigation }) => {
           // value={text}
           onChangeText={(text) => setText(text)}
         />
-        <Filtra setSiglaEstado={setSiglaEstado} lidaFiltrar={lidaFiltrar} />
+        {/* <Filtra setSiglaEstado={setSiglaEstado} lidaFiltrar={lidaFiltrar} /> */}
       </View>
       <ComponentFiltrados />
     </View>

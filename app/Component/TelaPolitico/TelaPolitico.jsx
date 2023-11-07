@@ -147,15 +147,16 @@ const style = StyleSheet.create({
     justifyContent: "center",
     height: 250,
     flexDirection: "column",
+    backgroundColor: "45BA5F",
   },
   contentPrimary: {
     justifyContent: "center",
     alignItems: "center",
     bottom: 10,
+
   },
   contentSecondary: {
-    backgroundColor: "red",
-    color: "red",
+
     flex: 1,
   },
   caixasInform: {
